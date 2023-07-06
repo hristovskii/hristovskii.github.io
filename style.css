@@ -394,6 +394,12 @@ span {
   text-align: center;
   padding: 0 4rem;
   opacity: 0;
+  transition: 0.5s ease;
+}
+
+.portfolio-box:hover .portfolio-layer{
+  opacity: 1;
+  
 }
 
 .portfolio-layer h4 {
