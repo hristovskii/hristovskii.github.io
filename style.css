@@ -696,7 +696,7 @@ span {
     margin-bottom: .1rem;
   }
 
-  .navbar{
+  .navbar {
     position: absolute;
     top: 100%;
     left: 0;
@@ -708,7 +708,7 @@ span {
     display: none;
   }
 
-  .navbar .active{
+  .navbar.active{
     display: block;
   }
 
