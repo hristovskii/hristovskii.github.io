@@ -554,7 +554,12 @@ span {
 
 .testimonial-slide h3{
   font-size: 2.5rem;
-  margin: 2rem 0;
+  margin: 2rem 0 0 1rem;
+}
+
+.testimonial-slide h5{
+  font-size: 2rem;
+  margin: 1rem 0;  
 }
 
 .testimonial-slide p{
@@ -581,6 +586,16 @@ span {
 
 .testimonial-box .swiper-button-pagination-bullet-active{
   background: var(--main-color);
+}
+
+.testimonial-icon-link i{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    background: transparent;
+    border-radius: 50%;
 }
 
 .contact h2{
@@ -895,6 +910,8 @@ span {
     display: none;
   }
 }
+
+
 
 @media (max-width: 617px){
  .portfolio .portfolio-container{
