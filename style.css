@@ -330,6 +330,7 @@ span {
   font-size: 1.6rem;
   margin: 2rem 0 3rem;
 }
+
 .services {
   min-height: auto;
   padding-bottom: 7rem;
@@ -378,6 +379,58 @@ span {
 }
 
 .services-box p {
+  font-size: 1.6rem;
+  margin: 1rem 0 3rem;
+}
+
+.hobbies {
+  min-height: auto;
+  padding-bottom: 7rem;
+}
+.hobbies h2 {
+  margin-bottom: 5rem;
+}
+
+.hobbies .hobbies-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.hobbies-container .hobbies-box {
+  flex: 1 1 30rem;
+  background: var(--bg-color);
+  padding: 3rem 2rem 4rem;
+  border-radius: 2rem;
+  box-shadow: 0 0.1rem 0.5rem var(--shadow-color);
+  text-align: center;
+  border-top: 0.6rem solid var(--main-color);
+  border-bottom: 0.6rem solid var(--main-color);
+  transition: 0.5s ease;
+}
+
+.hobbies-container .hobbies-box:hover {
+  box-shadow: 0 0.1rem 2rem var(--shadow-color);
+  transform: scale(1.02);
+}
+
+.hobbies-box i {
+  font-size: 7rem;
+  color: var(--main-color);
+}
+
+.hobbies-box h3 {
+  font-size: 2.6rem;
+  transition: 0.5 ease;
+}
+
+.hobbies-box:hover h3 {
+  color: var(--main-color);
+}
+
+.hobbies-box p {
   font-size: 1.6rem;
   margin: 1rem 0 3rem;
 }
@@ -636,7 +689,7 @@ span {
     padding: 10rem 3% 2rem;
   }
 
-  .home .profession-container .portfolio-box{
+  .home .profession-container .profession-box{
     right: -22rem;
   }
 
