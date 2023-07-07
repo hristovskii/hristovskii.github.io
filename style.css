@@ -771,7 +771,7 @@ span {
   }
 
   .home .profession-box .profession:nth-child(1){
-    transform: rotate(-90deg) translateY(-120px, -210px);
+    transform: rotate(-90deg) translate(-120px, -210px);
   }
   
   .home .profession-box .profession:nth-child(1) i {
@@ -779,15 +779,15 @@ span {
   }
 
   .home .profession-box .profession:nth-child(2){
-    transform: rotate(0deg) translateY(0px, -335px);
+    transform: rotate(0deg) translate(0, -335px);
   }
 
   .home .profession-box .profession:nth-child(3){
-    transform: rotate(90deg) translateY(-115px, -450px);
+    transform: rotate(90deg) translate(-115px, -450px);
   }
  
   .home .profession-box .profession:nth-child(4){
-    transform: rotate(180deg) translateY(-220px, -335px);
+    transform: rotate(180deg) translate(-220px, -335px);
   }
 
   .home .profession-box .circle{
