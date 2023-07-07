@@ -181,9 +181,6 @@ section {
   border-color: var(--main-color);
 }
 
-profession-container {
-}
-
 .home .profession-container {
   position: absolute;
   top: 50%;
