@@ -296,7 +296,7 @@
     <section class="contact" id="contact">
       <h2 class="heading">Contact <span>Me!</span></h2>
 
-      <form action="#">
+      <form action="#contact">
         <div class="input-box">
           <input type="text" placeholder="Full Name">
           <input type="email" placeholder="Email Address">
@@ -306,7 +306,15 @@
           <input type="text" placeholder="Email Subject">
         </div>
         <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-        <input type="submit" value="Send Message" class="btn">
+        <input type="submit" value="Send Message" class="btn" onclick="openPopup()">
+
+        <div class="popup" id="popup">
+          <img src="images/404-tick.png">
+          <h2>Thank you!</h2>
+          <p>Your details has been successfully submitted. Thanks!</p>
+          <button type="button" onclick="closePopup()">Close</button>
+      </div>
+
       </form>
     </section>
 
