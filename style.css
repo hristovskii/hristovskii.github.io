@@ -724,7 +724,7 @@ span {
   width: 100%;
   margin-top: 50px;
   padding: 10px 0;
-  background: #6fd649;
+  background: var(--main-color);
   color: #fff;
   border: 0;
   outline: none;
@@ -782,7 +782,7 @@ span {
   width: 100%;
   margin-top: 50px;
   padding: 10px 0;
-  background: #6fd649;
+  background: var(--main-color);
   color: #fff;
   border: 0;
   outline: none;
@@ -840,7 +840,7 @@ span {
   width: 100%;
   margin-top: 50px;
   padding: 10px 0;
-  background: #6fd649;
+  background: var(--main-color);
   color: #fff;
   border: 0;
   outline: none;
@@ -898,7 +898,7 @@ span {
   width: 100%;
   margin-top: 50px;
   padding: 10px 0;
-  background: #6fd649;
+  background: var(--main-color);
   color: #fff;
   border: 0;
   outline: none;
@@ -956,7 +956,7 @@ span {
   width: 100%;
   margin-top: 50px;
   padding: 10px 0;
-  background: #6fd649;
+  background: var(--main-color);
   color: #fff;
   border: 0;
   outline: none;
@@ -1014,7 +1014,7 @@ span {
   width: 100%;
   margin-top: 50px;
   padding: 10px 0;
-  background: #6fd649;
+  background: var(--main-color);
   color: #fff;
   border: 0;
   outline: none;
@@ -1072,7 +1072,7 @@ span {
   width: 100%;
   margin-top: 50px;
   padding: 10px 0;
-  background: #6fd649;
+  background: var(--main-color);
   color: #fff;
   border: 0;
   outline: none;
@@ -1130,7 +1130,7 @@ span {
   width: 100%;
   margin-top: 50px;
   padding: 10px 0;
-  background: #6fd649;
+  background: var(--main-color);
   color: #fff;
   border: 0;
   outline: none;
