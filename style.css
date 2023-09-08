@@ -1236,6 +1236,10 @@ span {
     display: block;
   }
 
+  .logo{
+    font-size: 2.3rem;
+  }
+
   #darkMode-icon{
     position: absolute;
     right: 7rem;
