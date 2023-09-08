@@ -1398,6 +1398,10 @@ span {
   .testimonial-box .swiper-button-prev{
     display: none;
   }
+
+  .footer-iconTop{
+    margin-left: 88%;
+  }
 }
 
 
