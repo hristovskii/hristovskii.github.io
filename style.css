@@ -186,9 +186,8 @@ section {
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  width: 768px;
+  width: 800px;
   height: 768px;
-
   overflow: hidden;
   pointer-events: none;
 }
@@ -247,6 +246,21 @@ section {
 .home .profession-box .profession:nth-child(2),
 .home .profession-box .profession:nth-child(4) {
   padding-bottom: 20px;
+}
+
+.home .profession-box .profession:nth-child(1){
+  margin-left: -0.7rem;
+}
+.home .profession-box .profession:nth-child(2){
+  margin-top: -1rem;
+}
+.home .profession-box .profession:nth-child(3){
+  margin-left: -1rem;
+}
+
+.home .profession-box .profession:nth-child(4){
+  margin-top: 6rem;
+  /* text-align: center; */
 }
 
 .home .profession i {
@@ -320,7 +334,7 @@ span {
 }
 
 .about-content h3 {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .about-content p {
@@ -330,6 +344,7 @@ span {
 
 .services {
   min-height: auto;
+  padding-top: 12rem;
   padding-bottom: 7rem;
 }
 .services h2 {
@@ -382,6 +397,7 @@ span {
 
 .hobbies {
   min-height: auto;
+  padding-top: 12rem;
   padding-bottom: 7rem;
 }
 .hobbies h2 {
@@ -433,6 +449,7 @@ span {
 }
 
 .portfolio {
+  padding-top: 12rem;
   padding-bottom: 10rem;
 }
 
@@ -619,7 +636,7 @@ span {
 .contact form textarea{
   width: 100%;
   padding: 1.5rem;
-  font-size: 1.6rem;
+  font-size: 2rem;
   color: var(--text-color);
   background: var(--bg-color);
   border-radius: .8rem;
