@@ -146,8 +146,20 @@ let popup7 = document.getElementById("popup7");
 
         function openPopup7(){
             popup7.classList.add("open-popup7");
+
+            var templateParams = {
+              name: 'James',
+              notes: 'Check this out!'
+            };
+            emailjs.send('service_qhz0c99', 'template_9t33m4j', templateParams) //use your Service ID and Template ID
+              .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+              }, function (error) {
+                console.log('FAILED...', error);
+              });
         }
         function closePopup7(){
             popup7.classList.remove("open-popup7");
         }
 
+        
