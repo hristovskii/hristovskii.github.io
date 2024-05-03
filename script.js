@@ -148,8 +148,9 @@ let popup7 = document.getElementById("popup7");
             popup7.classList.add("open-popup7");
 
             var templateParams = {
-              name: 'James',
-              notes: 'Check this out!'
+              from_name: document.getElementById("Name").value,
+              message: document.getElementById("Message").value,
+              contact_info: document.getElementById("Email").value,
             };
             emailjs.send('service_qhz0c99', 'template_9t33m4j', templateParams) //use your Service ID and Template ID
               .then(function (response) {
