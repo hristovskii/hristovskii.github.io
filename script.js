@@ -84,10 +84,7 @@ function closePopup(i) {
 document.getElementById("popup"+i).classList.remove("open-popup"+i);
 }
 
-let popup7 = document.getElementById("popup7");
-
-        function openPopup7(){
-            popup7.classList.add("open-popup7");
+        function send(){
 
             var templateParams = {
               from_name: document.getElementById("Name").value,
@@ -100,9 +97,13 @@ let popup7 = document.getElementById("popup7");
               }, function (error) {
                 console.log('FAILED...', error);
               });
+
+              alert("Your message has been sent successfully!");
+
+              document.getElementById("Name").value = "";
+              document.getElementById("Message").value = "";
+              document.getElementById("Email").value = "";
         }
-        function closePopup7(){
-            popup7.classList.remove("open-popup7");
-        }
+        
 
         
