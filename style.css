@@ -692,7 +692,7 @@ span {
 }
 
 
-.popup{
+.popup0{
   width: 700px;
   background: #fff;
   border-style: solid;
@@ -709,13 +709,13 @@ span {
   transition: transform 0.4s, top 0.4s;
 }
 
-.open-popup{
+.open-popup0{
   visibility: visible;
   top: 50%;
   transform: translate(-50%, -50%) scale(1);
 }
 
-.popup img{
+.popup0 img{
   width: 100px;
   margin-top: -50px;
   border-radius: 50%;
@@ -726,18 +726,18 @@ span {
   outline: .5rem solid var(--main-color);
 }
 
-.popup h2{
+.popup0 h2{
   font-size: 38px;
   font-weight: 500;
   margin: 30px 0 10px;
   text-align: center;
 }
 
-.popup p{
+.popup0 p{
   font-size: 16px;
 }
 
-.popup button{
+.popup0 button{
   width: 100%;
   margin-top: 50px;
   padding: 10px 0;
