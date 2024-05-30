@@ -1345,7 +1345,7 @@ span {
 
   .home .profession-box .profession:nth-child(1){
     transform: rotate(-90deg) translate(-120px, -210px);
-    left: 75px;
+    left: 90px;
   }
   
   .home .profession-box .profession:nth-child(1) i {
@@ -1377,7 +1377,7 @@ span {
 
   .home .profession-container .overlay{
     position: fixed;
-    top: 80rem;
+    top: 95rem;
     left: 50%;
     right: 0;
     transform: rotate(90deg) translate(-50%, 50%) scaleY(3);
