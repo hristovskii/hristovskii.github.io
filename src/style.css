@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+/* Typing cursor animation */
+.typing-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Scroll animations */
+.project-card, .skill-pill {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section animations */
+.section-visible {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Skill pill animations */
+.skill-pill {
+  animation: fadeInUp 0.5s ease forwards;
+  animation-play-state: paused;
+}
+
+.section-visible .skill-pill {
+  animation-play-state: running;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Project card animations */
+.project-card {
+  animation: fadeInScale 0.5s ease forwards;
+  animation-play-state: paused;
+}
+
+.section-visible .project-card {
+  animation-play-state: running;
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Download button hover effect */
+.download-resume-btn:hover {
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+}
+
+/* Parallax sections */
+.parallax-section {
+  will-change: transform;
+}
+
+/* Navigation labels */
+.nav-label {
+  white-space: nowrap;
+}
+
+/* Progress bar animation */
+.progress-bar {
+  transition: width 1.5s ease-in-out;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .social-links {
+    gap: 1rem;
+  }
+  
+  .download-resume-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .project-card, .skill-pill {
+    transform-origin: center;
+  }
+}
