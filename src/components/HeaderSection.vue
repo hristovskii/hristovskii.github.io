@@ -7,7 +7,7 @@
     <div ref="infoElement" class="mb-6 space-y-1 text-base sm:text-lg opacity-0 transform translate-y-4">
       <p>Petar Hristovski</p>
       <p>Skopje, North Macedonia</p>
-      <p>21 years old</p>
+      <p>22 years old</p>
     </div>
     
     <div ref="roleElement" class="mb-8 space-y-1 text-base sm:text-lg opacity-0 transform translate-y-4">
