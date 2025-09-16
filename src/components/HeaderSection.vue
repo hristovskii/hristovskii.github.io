@@ -7,7 +7,7 @@
     <div ref="infoElement" class="mb-6 space-y-1 text-base sm:text-lg opacity-0 transform translate-y-4">
       <p>Petar Hristovski</p>
       <p>Skopje, North Macedonia</p>
-      <p>21 years old</p>
+      <p>{{ age }} years old</p>
     </div>
     
     <div ref="roleElement" class="mb-8 space-y-1 text-base sm:text-lg opacity-0 transform translate-y-4">
@@ -17,10 +17,10 @@
           class="underline transition-colors" 
           :class="isDarkMode ? 'text-violet-300 hover:text-violet-200' : 'text-purple-700 hover:text-purple-900'">EaseAccess24</a></p>
       <p>Trainer @ <a 
-          href="https://semosedu.mk/" 
+          href="https://www.instagram.com/kodrum.mk/" 
           target="_blank"
           class="underline transition-colors" 
-          :class="isDarkMode ? 'text-violet-300 hover:text-violet-200' : 'text-purple-700 hover:text-purple-900'">Semos Education</a></p>
+          :class="isDarkMode ? 'text-violet-300 hover:text-violet-200' : 'text-purple-700 hover:text-purple-900'">Kodrum</a></p>
       <p>Software Engineering student @ <a 
           href="https://www.finki.ukim.mk/"
           target="_blank" 
@@ -70,7 +70,7 @@
 import { ref, onMounted, defineProps } from 'vue';
 import { Mail, Github, Linkedin, Download } from 'lucide-vue-next';
 
-const props = defineProps<{
+defineProps<{
   isDarkMode: boolean
 }>();
 
@@ -115,4 +115,21 @@ onMounted(() => {
     }, 300 + index * 200);
   });
 });
+
+const age = ref(0);
+
+const calculateAge = () => {
+  const birthDate = new Date(2003, 6, 6);
+  const today = new Date();
+  let calculatedAge = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    calculatedAge--;
+  }
+  
+  age.value = calculatedAge;
+};
+
+calculateAge();
 </script>
