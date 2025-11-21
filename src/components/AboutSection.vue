@@ -2,11 +2,13 @@
   <section 
     class="mb-20 parallax-section"
     data-speed="0.07"
+    role="region"
+    aria-labelledby="about-heading"
   >
     <div class="rounded-xl p-6 backdrop-blur-lg transition-all duration-300 transform hover:scale-[1.01]"
          :class="isDarkMode ? 'bg-purple-900/40 border border-purple-500/20 shadow-lg shadow-purple-900/10' : 'bg-white/60 border-[0.12rem] border-purple-500 shadow-lg shadow-purple-300/10'">
       <div class="flex items-center justify-between mb-4">
-        <h2 class="text-2xl sm:text-3xl" :class="isDarkMode ? '' : 'text-purple-900'">&lt; About me /&gt;</h2>
+        <h2 id="about-heading" class="text-2xl sm:text-3xl" :class="isDarkMode ? '' : 'text-purple-900'">&lt; About me /&gt;</h2>
         <button 
           @click="$emit('toggle')" 
           class="p-2 rounded-full transition-transform duration-300"
@@ -15,15 +17,19 @@
             { 'rotate-180': !sectionState }
           ]"
           aria-label="Toggle about section"
+          :aria-expanded="sectionState"
+          :aria-controls="sectionState ? 'about-content' : undefined"
         >
           <ChevronDown class="h-6 w-6" />
         </button>
       </div>
       
       <div 
+        id="about-content"
         ref="aboutContent"
         class="transition-all duration-500 overflow-hidden"
         :style="{ maxHeight: sectionState ? aboutContentHeight + 'px' : '0px', opacity: sectionState ? 1 : 0 }"
+        :aria-hidden="!sectionState"
       >
         <div class="space-y-4">
           <p class="leading-relaxed">
@@ -54,45 +60,45 @@
         </div>
         
         <!-- Timeline -->
-        <div class="mt-10">
-          <h3 class="mb-4 text-center text-xl" :class="isDarkMode ? 'text-violet-200' : 'text-purple-800'">Journey</h3>
+        <section class="mt-10" role="region" aria-labelledby="journey-heading">
+          <h3 id="journey-heading" class="mb-4 text-center text-xl" :class="isDarkMode ? 'text-violet-200' : 'text-purple-800'">Journey</h3>
           <div class="relative">
             <!-- Timeline line -->
-            <div class="absolute left-[0.3rem] top-[1rem] bottom-0 w-0.5 bg-gradient-to-b from-violet-500 to-purple-500"></div>
+            <div class="absolute left-[0.3rem] top-[1rem] bottom-0 w-0.5 bg-gradient-to-b from-violet-500 to-purple-500" aria-hidden="true"></div>
             
             <!-- Timeline items -->
-            <div class="timeline-items space-y-8 pl-6">
-              <div class="timeline-item relative">
-                <div class="absolute -left-6 top-1 h-3 w-3 rounded-full bg-violet-500"></div>
+            <ul class="timeline-items space-y-8 pl-6" role="list">
+              <li class="timeline-item relative">
+                <div class="absolute -left-6 top-1 h-3 w-3 rounded-full bg-violet-500" aria-hidden="true"></div>
                 <div class="timeline-date text-sm font-medium" :class="isDarkMode ? 'text-violet-300' : 'text-purple-700'">2025 - Present</div>
                 <div class="timeline-title font-medium mt-1" :class="isDarkMode ? 'text-white' : 'text-purple-900'">Trainer at Semos Education</div>
                 <div class="timeline-content mt-1 text-sm" :class="isDarkMode ? 'text-gray-300' : 'text-gray-600'">Course for C++ (Beginner, Advanced).</div>
-              </div>
+              </li>
 
-              <div class="timeline-item relative">
-                <div class="absolute -left-6 top-1 h-3 w-3 rounded-full bg-violet-500"></div>
+              <li class="timeline-item relative">
+                <div class="absolute -left-6 top-1 h-3 w-3 rounded-full bg-violet-500" aria-hidden="true"></div>
                 <div class="timeline-date text-sm font-medium" :class="isDarkMode ? 'text-violet-300' : 'text-purple-700'">2024 - Present</div>
                 <div class="timeline-title font-medium mt-1" :class="isDarkMode ? 'text-white' : 'text-purple-900'">Intern - Full Stack Developer at EaseAccess24</div>
                 <div class="timeline-content mt-1 text-sm" :class="isDarkMode ? 'text-gray-300' : 'text-gray-600'">Working on the widget and the official website.</div>
-              </div>
+              </li>
               
-              <div class="timeline-item relative">
-                <div class="absolute -left-6 top-1 h-3 w-3 rounded-full bg-violet-500"></div>
+              <li class="timeline-item relative">
+                <div class="absolute -left-6 top-1 h-3 w-3 rounded-full bg-violet-500" aria-hidden="true"></div>
                 <div class="timeline-date text-sm font-medium" :class="isDarkMode ? 'text-violet-300' : 'text-purple-700'">2022 - Present</div>
                 <div class="timeline-title font-medium mt-1" :class="isDarkMode ? 'text-white' : 'text-purple-900'">Computer Science Student</div>
                 <div class="timeline-content mt-1 text-sm" :class="isDarkMode ? 'text-gray-300' : 'text-gray-600'">Bachelors of Applied Science and the FCSE faculty in Skopje with a focus on
                   Software Engineering & Computer Science.</div>
-              </div>
+              </li>
 
-              <div class="timeline-item relative">
-                <div class="absolute -left-6 top-1 h-3 w-3 rounded-full bg-violet-500"></div>
+              <li class="timeline-item relative">
+                <div class="absolute -left-6 top-1 h-3 w-3 rounded-full bg-violet-500" aria-hidden="true"></div>
                 <div class="timeline-date text-sm font-medium" :class="isDarkMode ? 'text-violet-300' : 'text-purple-700'">2018 - 2022</div>
                 <div class="timeline-title font-medium mt-1" :class="isDarkMode ? 'text-white' : 'text-purple-900'">High School Diploma</div>
                 <div class="timeline-content mt-1 text-sm" :class="isDarkMode ? 'text-gray-300' : 'text-gray-600'">Mathematics and Computer Science</div>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   </section>

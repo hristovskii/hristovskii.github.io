@@ -1,12 +1,13 @@
 <template>
-  <section 
+  <div 
     class="mb-20 opacity-0 transform translate-y-4 parallax-section"
     data-speed="0.08"
+    aria-labelledby="projects-heading"
   >
     <div class="rounded-xl p-6 backdrop-blur-lg transition-all duration-300 transform hover:scale-[1.01]"
          :class="isDarkMode ? 'bg-purple-900/40 border border-purple-500/20 shadow-lg shadow-purple-900/10' : 'bg-white/60 border-[0.12rem] border-purple-500 shadow-lg shadow-purple-300/10'">
-      <div class="flex items-center justify-between mb-4">
-        <h2 class="text-2xl sm:text-3xl" :class="isDarkMode ? '' : 'text-purple-900'">&lt; Open-Source Projects /&gt;</h2>
+      <header class="flex items-center justify-between mb-4">
+        <h2 id="projects-heading" class="text-2xl sm:text-3xl" :class="isDarkMode ? '' : 'text-purple-900'">&lt; Open-Source Projects /&gt;</h2>
         
         <button 
           @click="$emit('toggle')" 
@@ -19,8 +20,10 @@
         >
           <ChevronDown class="h-6 w-6" />
         </button>
-      </div>
-      <p><span class="text-red-500">Disclaimer:</span> Live Demo links may not work, working on it. Check the <span class="text-green-500">source code</span>.</p>
+      </header>
+      <aside role="note" aria-label="Project disclaimer" class="mb-4">
+        <p><span class="text-red-500">Disclaimer:</span> Live Demo links may not work, working on it. Check the <span class="text-green-500">source code</span>.</p>
+      </aside>
       
       <div 
         ref="projectsContent"
@@ -28,7 +31,7 @@
         :style="{ maxHeight: sectionState ? projectsContentHeight + 'px' : '0px', opacity: sectionState ? 1 : 0 }"
       >
         <!-- Project Categories -->
-        <div class="mt-2 mb-6 flex flex-wrap justify-center gap-3">
+        <nav aria-label="Project categories" class="mt-2 mb-6 flex flex-wrap justify-center gap-3">
           <button 
             v-for="category in ['All', 'Web', 'Mobile', 'Game', 'Other']" 
             :key="category"
@@ -39,13 +42,14 @@
                 ? (isDarkMode ? 'bg-violet-600 text-white' : 'bg-violet-500 text-white') 
                 : (isDarkMode ? 'bg-purple-900/30 hover:bg-purple-800/40' : 'bg-purple-100 hover:bg-purple-200')
             ]"
+            :aria-pressed="projectFilter === category"
           >
             {{ category }}
           </button>
-        </div>
+        </nav>
         
-        <div class="grid gap-6 sm:grid-cols-2">
-          <div v-for="(project, index) in filteredProjects" :key="project.title" 
+        <section aria-label="Project grid" class="grid gap-6 sm:grid-cols-2">
+          <article v-for="(project, index) in filteredProjects" :key="project.title" 
               class="project-card group relative overflow-hidden rounded-xl p-5 pb-2 transition-all duration-500"
               :class="isDarkMode ? 'backdrop-blur-sm bg-purple-900/30 border border-purple-500/20 hover:bg-purple-800/40 hover:border-purple-500/30 hover:shadow-lg hover:shadow-purple-900/20' : 'backdrop-blur-sm bg-white/50 border-[0.15rem] border-purple-300  hover:bg-white/70 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-300/10'"
               :style="{ animationDelay: `${index * 100}ms` }">
@@ -73,17 +77,17 @@
               </a>
             </div>
             <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-violet-500 to-purple-500 transition-all duration-500 group-hover:w-full"></div>
-          </div>
-        </div>
+          </article>
+        </section>
         
         <!-- Featured Project -->
-        <div class="mt-5 rounded-xl overflow-hidden" 
+        <section aria-labelledby="featured-project-heading" class="mt-5 rounded-xl overflow-hidden" 
             :class="isDarkMode ? 'bg-purple-900/50 border border-purple-500/30' : 'bg-white/70 border-[0.12rem] border-purple-300 mb-5'">
-          <div class="p-5">
-            <div class="flex items-center gap-2 mb-2">
+          <article class="p-5">
+            <header class="flex items-center gap-2 mb-2">
               <Star class="h-5 w-5" :class="isDarkMode ? 'text-violet-300' : 'text-purple-600'" />
-              <h3 class="text-xl font-medium" :class="isDarkMode ? 'text-violet-200' : 'text-purple-800'">Featured Project</h3>
-            </div>
+              <h3 id="featured-project-heading" class="text-xl font-medium" :class="isDarkMode ? 'text-violet-200' : 'text-purple-800'">Featured Project</h3>
+            </header>
             <h4 class="text-lg font-medium mb-2" :class="isDarkMode ? 'text-white' : 'text-purple-900'">Calendex</h4>
             <p class="mb-4 text-sm" :class="isDarkMode ? 'text-gray-300' : 'text-gray-600'">
               Calendex is a web application that allows users to import and view events from multiple Google, Outlook, or Apple calendars in one unified calendar, for better scheduling and planning.            </p>
@@ -117,11 +121,11 @@
                 <Github class="h-4 w-4" /> Source Code
               </a>
             </div>
-          </div>
-        </div>
+          </article>
+        </section>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -199,7 +203,7 @@ const projects = reactive([
     title: 'Brat za brat, Ljuben za pivo',
     description: 'Si bese ednas i samo ednas eden Ljuben sto sakase da pie mnogu pivo. Tolku mnogu sakase da pie sto drugarite napravija igra vo negova chest.',
     technologies: ['Unity', 'ITCH.IO', '2D'],
-    link: 'https://pedzo.itch.io/brat-za-brat-ljuben-za-pivo',
+    link: 'https://pedzo.itch.io/brat-za-brat-pivo-za-ljuben',
     category: 'Game',
   },
   {

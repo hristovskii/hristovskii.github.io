@@ -2,11 +2,13 @@
   <section 
     class="mb-20 opacity-0 transform translate-y-4 parallax-section"
     data-speed="0.05"
+    role="region"
+    aria-labelledby="skills-heading"
   >
     <div class="rounded-xl p-6 backdrop-blur-lg transition-all duration-300 transform hover:scale-[1.01]"
          :class="isDarkMode ? 'bg-purple-900/40 border border-purple-500/20 shadow-lg shadow-purple-900/10' : 'bg-white/60 border-[0.12rem] border-purple-500  shadow-lg shadow-purple-300/10'">
       <div class="flex items-center justify-between mb-4">
-        <h2 class="text-2xl sm:text-3xl" :class="isDarkMode ? '' : 'text-purple-900'">&lt; Skills /&gt;</h2>
+        <h2 id="skills-heading" class="text-2xl sm:text-3xl" :class="isDarkMode ? '' : 'text-purple-900'">&lt; Skills /&gt;</h2>
         <button 
           @click="$emit('toggle')" 
           class="p-2 rounded-full transition-transform duration-300"
@@ -26,65 +28,71 @@
         :style="{ maxHeight: sectionState ? skillsContentHeight + 'px' : '0px', opacity: sectionState ? 1 : 0 }"
       >
         <!-- Skill Categories -->
-        <div class="mt-2 mb-6 flex flex-wrap justify-center gap-3">
-          <button 
-            v-for="category in ['All', 'Frontend', 'Backend', 'Mobile', 'Game', 'DevOps', 'Other']" 
-            :key="category"
-            @click="filterSkills(category)"
-            class="rounded-full px-4 py-1.5 text-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-violet-400"
-            :class="[
-              skillFilter === category 
-                ? (isDarkMode ? 'bg-violet-600 text-white' : 'bg-violet-500 text-white') 
-                : (isDarkMode ? 'bg-purple-900/30 hover:bg-purple-800/40' : 'bg-purple-100 hover:bg-purple-200')
-            ]"
-          >
-            {{ category }}
-          </button>
-        </div>
-        
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
-          <div v-for="(skill, index) in filteredSkills" :key="skill.name" 
-              class="skill-pill group relative overflow-hidden rounded-full px-4 py-2 text-center text-sm sm:text-base transition-all duration-300"
-              :class="isDarkMode ? 'backdrop-blur-sm bg-purple-900/30 border border-purple-500/20 hover:bg-purple-800/40 hover:border-purple-500/30' : 'backdrop-blur-sm bg-white/50 border-[0.15rem] border-purple-300 hover:bg-white/70 hover:border-purple-300'"
-              :style="{ animationDelay: `${index * 50}ms` }">
-            <div class="flex items-center justify-center gap-2">
-              <component :is="getSkillIcon(skill.name)" v-if="getSkillIcon(skill.name)" class="h-4 w-4" />
-              <span>{{ skill.name }}</span>
-            </div>
-            <div class="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                :class="isDarkMode ? 'bg-gradient-to-r from-purple-600/20 to-violet-600/20' : 'bg-gradient-to-r from-purple-200/60 to-violet-200/60'"></div>
+        <nav class="mt-2 mb-6" role="navigation" aria-label="Skill category filters">
+          <div class="flex flex-wrap justify-center gap-3">
+            <button 
+              v-for="category in ['All', 'Frontend', 'Backend', 'Mobile', 'Game', 'DevOps', 'Other']" 
+              :key="category"
+              @click="filterSkills(category)"
+              class="rounded-full px-4 py-1.5 text-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-violet-400"
+              :class="[
+                skillFilter === category 
+                  ? (isDarkMode ? 'bg-violet-600 text-white' : 'bg-violet-500 text-white') 
+                  : (isDarkMode ? 'bg-purple-900/30 hover:bg-purple-800/40' : 'bg-purple-100 hover:bg-purple-200')
+              ]"
+              :aria-pressed="skillFilter === category"
+            >
+              {{ category }}
+            </button>
           </div>
-        </div>
+        </nav>
+        
+        <section role="region" aria-labelledby="skills-grid-heading">
+          <h3 id="skills-grid-heading" class="sr-only">Skills by category</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
+            <div v-for="(skill, index) in filteredSkills" :key="skill.name" 
+                class="skill-pill group relative overflow-hidden rounded-full px-4 py-2 text-center text-sm sm:text-base transition-all duration-300"
+                :class="isDarkMode ? 'backdrop-blur-sm bg-purple-900/30 border border-purple-500/20 hover:bg-purple-800/40 hover:border-purple-500/30' : 'backdrop-blur-sm bg-white/50 border-[0.15rem] border-purple-300 hover:bg-white/70 hover:border-purple-300'"
+                :style="{ animationDelay: `${index * 50}ms` }">
+              <div class="flex items-center justify-center gap-2">
+                <component :is="getSkillIcon(skill.name)" v-if="getSkillIcon(skill.name)" class="h-4 w-4" />
+                <span>{{ skill.name }}</span>
+              </div>
+              <div class="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            :class="isDarkMode ? 'bg-gradient-to-r from-purple-600/20 to-violet-600/20' : 'bg-gradient-to-r from-purple-200/60 to-violet-200/60'"></div>
+            </div>
+          </div>
+        </section>
         
         <!-- Skill Progress Bars -->
-        <div class="mt-8 space-y-6" ref="progressBarsContainer">
-          <h3 class="mb-4 text-center text-xl" :class="isDarkMode ? 'text-violet-200' : 'text-purple-800'">Proficiency</h3>
+        <section class="mt-8 space-y-6" ref="progressBarsContainer" role="region" aria-labelledby="proficiency-heading">
+          <h3 id="proficiency-heading" class="mb-4 text-center text-xl" :class="isDarkMode ? 'text-violet-200' : 'text-purple-800'">Proficiency</h3>
           <div v-for="(skill, index) in topSkills" :key="skill.name" class="space-y-1 progress-item" :data-delay="index * 100">
             <div class="flex justify-between text-sm">
               <span>{{ skill.name }}</span>
               <span class="progress-percent">0%</span>
             </div>
             <div class="h-2 w-full rounded-full overflow-hidden" :class="isDarkMode ? 'bg-purple-900/40' : 'bg-purple-100'">
-              <div class="progress-bar h-full rounded-full bg-gradient-to-r from-violet-500 to-purple-500 transition-all duration-1500" style="width: 0%"></div>
+              <div class="progress-bar h-full rounded-full bg-gradient-to-r from-violet-500 to-purple-500 transition-all duration-1500" style="width: 0%" role="progressbar" :aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" :aria-label="`${skill.name} proficiency`"></div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="mt-8 space-y-6">
-          <h3 class="mb-4 text-center text-xl" :class="isDarkMode ? 'text-violet-200' : 'text-purple-800'">Fun Skills</h3>
+        <section class="mt-8 space-y-6" role="region" aria-labelledby="fun-skills-heading">
+          <h3 id="fun-skills-heading" class="mb-4 text-center text-xl" :class="isDarkMode ? 'text-violet-200' : 'text-purple-800'">Fun Skills</h3>
           <div class="space-y-1">
             <div class="flex justify-between text-sm">
               <span>Beer Expert</span>
               <span>110%</span>
             </div>
             <div class="h-2 w-full rounded-full overflow-hidden absolute" :class="isDarkMode ? 'bg-purple-900/40' : 'bg-purple-100'">
-              <div class="h-full rounded-full bg-gradient-to-r from-yellow-400 to-amber-500" style="width: 100%"></div>
+              <div class="h-full rounded-full bg-gradient-to-r from-yellow-400 to-amber-500" style="width: 100%" role="progressbar" aria-valuenow="110" aria-valuemin="0" aria-valuemax="100" aria-label="Beer Expert proficiency"></div>
             </div>
           </div>
           <p class="mb-4 text-xs italic text-center mt-2" 
           :class="isDarkMode ? 'text-violet-200' : 'text-black-800'">"
           Overflowing with expertise &#x1F37A;"</p>
-        </div>
+        </section>
       </div>
     </div>
   </section>

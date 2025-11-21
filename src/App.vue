@@ -2,33 +2,33 @@
   <div :class="['relative min-h-screen w-full overflow-x-hidden font-mono', isDarkMode ? 'text-gray-100' : 'text-gray-800']">
     <!-- Animated Blob Background -->
     <div class="absolute inset-0 z-0">
-      <canvas ref="blobCanvas" class="h-full w-full"></canvas>
+      <canvas ref="blobCanvas" class="h-full w-full" aria-hidden="true"></canvas>
     </div>
 
     <!-- Content Overlay -->
-    <div :class="['absolute inset-0 z-10 backdrop-blur-[2px]', isDarkMode ? 'bg-gradient-to-b from-purple-900/20 to-indigo-900/40' : 'bg-white']"></div>
+    <div :class="['absolute inset-0 z-10 backdrop-blur-[2px]', isDarkMode ? 'bg-gradient-to-b from-purple-900/20 to-indigo-900/40' : 'bg-white']" aria-hidden="true"></div>
 
     <!-- Theme Toggle and Back to Top -->
-    <div class="fixed top-4 right-4 z-50 flex gap-3">
+    <aside class="fixed top-4 right-4 z-50 flex gap-3" aria-label="Theme and navigation controls">
       <button 
         @click="toggleTheme" 
         class="rounded-full p-2 backdrop-blur-md transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-violet-400" 
-        :class="isDarkMode ? 'bg-purple-900/50' : 'bg-white/70'">
+        :class="isDarkMode ? 'bg-purple-900/50' : 'bg-white/70'"
+        :aria-label="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'">
         <Sun v-if="isDarkMode" class="h-5 w-5" />
         <Moon v-else class="h-5 w-5" />
-        <span class="sr-only">Toggle theme</span>
       </button>
       <button 
         @click="scrollToTop" 
         class="rounded-full p-2 backdrop-blur-md transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-violet-400" 
-        :class="isDarkMode ? 'bg-purple-900/50' : 'bg-white/70'">
+        :class="isDarkMode ? 'bg-purple-900/50' : 'bg-white/70'"
+        aria-label="Back to top">
         <ArrowUp class="h-5 w-5" />
-        <span class="sr-only">Back to top</span>
       </button>
-    </div>
+    </aside>
 
     <!-- Main Content -->
-    <div class="relative z-20 mx-auto max-w-4xl px-4 py-12 sm:py-16">
+    <main class="relative z-20 mx-auto max-w-4xl px-4 py-12 sm:py-16">
       <header-section 
         ref="headerSection"
         id="home"
@@ -58,12 +58,12 @@
         :section-state="sectionStates.projects"
         @toggle="toggleSection('projects')"
       />
+    </main>
 
-      <!-- Footer with Parallax -->
-      <footer id="footer" class="mt-20 mb-10 text-center text-sm parallax-section" data-speed="0.02" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
-        <p>© 2025 pedzo. All rights reserved, jk you can copy the source code :kiss_emoji:</p>
-      </footer>
-    </div>
+    <!-- Footer -->
+    <footer class="relative z-20 mt-20 mb-10 text-center text-sm parallax-section" data-speed="0.02" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
+      <p>© 2025 pedzo. All rights reserved, jk you can copy the source code :kiss_emoji:</p>
+    </footer>
   </div>
 </template>
 
@@ -76,6 +76,13 @@ import HeaderSection from './components/HeaderSection.vue';
 import AboutSection from './components/AboutSection.vue';
 import SkillsSection from './components/SkillsSection.vue';
 import ProjectsSection from './components/ProjectsSection.vue';
+
+onMounted(() => {
+  const script = document.createElement("script");
+  script.src = "https://widget.easeaccess24.com/sdk.js?key=oMNrqvSfGZ";
+  script.async = true; // Added for best practice
+  document.body.appendChild(script);
+});
 
 // Theme state
 const isDarkMode = ref(true);
