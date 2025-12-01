@@ -37,13 +37,13 @@ const goBack = () => {
   else router.push('/')
 }
 
-const recent = posts.slice(0, 5)
+// const recent = posts.slice(0, 5)
 
-const readingTime = (html: string) => {
-  const text = html.replace(/<[^>]*>/g, '')
-  const words = text.trim().split(/\s+/).length
-  return Math.max(1, Math.ceil(words / 200))
-}
+// const readingTime = (html: string) => {
+//   const text = html.replace(/<[^>]*>/g, '')
+//   const words = text.trim().split(/\s+/).length
+//   return Math.max(1, Math.ceil(words / 200))
+// }
 </script>
 
 <style scoped>

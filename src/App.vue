@@ -42,7 +42,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { Sun, Moon, ArrowUp } from 'lucide-vue-next';
+import { 
+  // Sun, Moon,
+   ArrowUp } from 'lucide-vue-next';
 
 // Import components
 import HeaderSection from './components/HeaderSection.vue';
@@ -51,9 +53,9 @@ import HeaderSection from './components/HeaderSection.vue';
 // Theme state
 const isDarkMode = ref(true);
 
-const toggleTheme = () => {
-  isDarkMode.value = !isDarkMode.value;
-};
+// const toggleTheme = () => {
+//   isDarkMode.value = !isDarkMode.value;
+// };
 
 const scrollToTop = () => {
   window.scrollTo({

@@ -57,7 +57,9 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, computed } from 'vue'
+import { onMounted, 
+  // ref, 
+  computed } from 'vue'
 import { posts } from '../data/posts'
 import { useRoute, useRouter } from 'vue-router'
 
