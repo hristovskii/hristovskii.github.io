@@ -61,6 +61,8 @@
         <Download class="h-5 w-5" />
         Download Resume
       </a>
+
+      <router-link to="/blog" class="ml-4 flex items-center gap-2 rounded-full px-6 py-3 text-white shadow-lg transition-all duration-300 hover:shadow-purple-900/50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-violet-400" :class="isDarkMode ? 'bg-gradient-to-r from-indigo-600 to-indigo-500' : 'bg-gradient-to-r from-indigo-500 to-indigo-400'">Blog</router-link>
     </div>
 
   </header>

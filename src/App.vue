@@ -10,14 +10,14 @@
 
     <!-- Theme Toggle and Back to Top -->
     <aside class="fixed top-4 right-4 z-50 flex gap-3" aria-label="Theme and navigation controls">
-      <button 
+      <!-- <button 
         @click="toggleTheme" 
         class="rounded-full p-2 backdrop-blur-md transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-violet-400" 
         :class="isDarkMode ? 'bg-purple-900/50' : 'bg-white/70'"
         :aria-label="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'">
         <Sun v-if="isDarkMode" class="h-5 w-5" />
         <Moon v-else class="h-5 w-5" />
-      </button>
+      </button> -->
       <button 
         @click="scrollToTop" 
         class="rounded-full p-2 backdrop-blur-md transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-violet-400" 
@@ -27,37 +27,10 @@
       </button>
     </aside>
 
-    <!-- Main Content -->
+    <!-- Main Content (pages rendered by router) -->
     <main class="relative z-20 mx-auto max-w-4xl px-4 py-12 sm:py-16">
-      <header-section 
-        ref="headerSection"
-        id="home"
-        :is-dark-mode="isDarkMode"
-      />
-
-      <about-section
-        ref="aboutSection"
-        id="about"
-        :is-dark-mode="isDarkMode"
-        :section-state="sectionStates.about"
-        @toggle="toggleSection('about')"
-      />
-
-      <skills-section
-        ref="skillsSection"
-        id="skills"
-        :is-dark-mode="isDarkMode"
-        :section-state="sectionStates.skills"
-        @toggle="toggleSection('skills')"
-      />
-
-      <projects-section
-        ref="projectsSection"
-        id="projects"
-        :is-dark-mode="isDarkMode"
-        :section-state="sectionStates.projects"
-        @toggle="toggleSection('projects')"
-      />
+      <HeaderSection :is-dark-mode="isDarkMode" id="home" />
+      <router-view />
     </main>
 
     <!-- Footer -->
@@ -68,21 +41,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import { Sun, Moon, ArrowUp } from 'lucide-vue-next';
 
 // Import components
 import HeaderSection from './components/HeaderSection.vue';
-import AboutSection from './components/AboutSection.vue';
-import SkillsSection from './components/SkillsSection.vue';
-import ProjectsSection from './components/ProjectsSection.vue';
 
-onMounted(() => {
-  const script = document.createElement("script");
-  script.src = "https://widget.easeaccess24.com/sdk.js?key=oMNrqvSfGZ";
-  script.async = true; // Added for best practice
-  document.body.appendChild(script);
-});
 
 // Theme state
 const isDarkMode = ref(true);
@@ -98,25 +62,8 @@ const scrollToTop = () => {
   });
 };
 
-// Section collapse state
-const sectionStates = reactive({
-  about: true, // Open by default
-  skills: true, // Open by default
-  projects: true // Open by default
-});
-
-// Component refs
-const headerSection = ref(null);
-const aboutSection = ref(null);
-const skillsSection = ref(null);
-const projectsSection = ref(null);
-
 // Canvas reference
 const blobCanvas = ref(null);
-
-const toggleSection = (section: 'about' | 'skills' | 'projects') => {
-  sectionStates[section] = !sectionStates[section];
-};
 
 
 onMounted(() => {
