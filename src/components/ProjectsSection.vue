@@ -129,8 +129,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, reactive, onMounted, watch, defineProps, defineEmits } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 import { ChevronDown, ExternalLink, Github, Star } from 'lucide-vue-next';
+import { projects } from '../data/projects';
 
 const props = defineProps<{
   isDarkMode: boolean,
@@ -148,72 +149,6 @@ const updateContentHeight = () => {
     projectsContentHeight.value = projectsContent.value.scrollHeight;
   }
 };
-
-// Projects data with categories
-const projects = reactive([
-{
-    title: 'EESTEC LC Skopje Website',
-    description: 'EESTEC LC Skopje Official website.',
-    technologies: ['Next.js', 'Tailwind CSS', 'MariaDB'],
-    link: 'https://eestec.mk/',
-    code: 'https://github.com/eestec-sk/eestec.mk',
-    category: 'Web'
-  },
-  {
-    title: 'Calendex',
-    description: 'Calendex is a web application that allows users to import and view events from multiple Google, Outlook, or Apple calendars in one unified calendar, for better scheduling and planning.',
-    technologies: ['Vue.js', 'Tailwind CSS', 'Shadcn UI'],
-    link: '',
-    code: 'https://github.com/hristovskii/calendex',
-    category: 'Web'
-  },
-  {
-    title: 'Green Leaf Labs',
-    description: 'Website for selling microgreens.',
-    technologies: ['Next.js', 'Tailwind CSS'],
-    link: '',
-    code: 'https://github.com/hristovskii/green-leaf-labs',
-    category: 'Web'
-  },
-  {
-    title: 'Back 2 Bacics',
-    description: 'Webiste for marketing a event for a local students organization.',
-    technologies: ['Next.js', 'Tailwind CSS'],
-    link: '',
-    code: 'https://github.com/hristovskii/b2b',
-    category: 'Web'
-  },
-  {
-    title: 'Portfolio Website',
-    description: 'A minimalist portfolio website.',
-    technologies: ['Vue.js', 'Tailwind CSS', 'Vite'],
-    link: '',
-    code: '',
-    category: 'Web'
-  },
-  {
-    title: 'Old Portfolio Website',
-    description: 'A womework that turned in a portfolio website.',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
-    link: '',
-    code: '',
-    category: 'Web'
-  },
-  {
-    title: 'Brat za brat, Ljuben za pivo',
-    description: 'Si bese ednas i samo ednas eden Ljuben sto sakase da pie mnogu pivo. Tolku mnogu sakase da pie sto drugarite napravija igra vo negova chest.',
-    technologies: ['Unity', 'ITCH.IO', '2D'],
-    link: 'https://pedzo.itch.io/brat-za-brat-pivo-za-ljuben',
-    category: 'Game',
-  },
-  {
-    title: 'flappy-ljuben-game',
-    description: 'Si beshe ednas eden ljuben sto sakase da pie mnogu pivo, drugarite mu napravija USTE EDNA igra vo negova chest. ',
-    technologies: ['Unity', 'ITCH.IO', '2D', 'Mobile'],
-    link: 'https://pedzo.itch.io/flappy-ljuben-game',
-    category: 'Game',
-  },
-]);
 
 const filterProjects = (category: string) => {
   projectFilter.value = category;

@@ -70,11 +70,11 @@
             <ul class="timeline-items space-y-8 pl-6" role="list">
               <li class="timeline-item relative">
                 <div class="absolute -left-6 top-1 h-3 w-3 rounded-full bg-violet-500" aria-hidden="true"></div>
-                <div class="timeline-date text-sm font-medium" :class="isDarkMode ? 'text-violet-300' : 'text-purple-700'">2025 - Present</div>
-                <div class="timeline-title font-medium mt-1" :class="isDarkMode ? 'text-white' : 'text-purple-900'">Trainer at Semos Education</div>
+                <div class="timeline-date text-sm font-medium" :class="isDarkMode ? 'text-violet-300' : 'text-purple-700'">2026 - present</div>
+                <div class="timeline-title font-medium mt-1" :class="isDarkMode ? 'text-white' : 'text-purple-900'">Trainer at Kodrum Education</div>
                 <div class="timeline-content mt-1 text-sm" :class="isDarkMode ? 'text-gray-300' : 'text-gray-600'">Course for C++ (Beginner, Advanced).</div>
-              </li>
-
+              </li> 
+              
               <li class="timeline-item relative">
                 <div class="absolute -left-6 top-1 h-3 w-3 rounded-full bg-violet-500" aria-hidden="true"></div>
                 <div class="timeline-date text-sm font-medium" :class="isDarkMode ? 'text-violet-300' : 'text-purple-700'">2024 - Present</div>
@@ -105,7 +105,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch, defineProps, defineEmits } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { ChevronDown } from 'lucide-vue-next';
 
 const props = defineProps<{

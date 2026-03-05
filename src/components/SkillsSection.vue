@@ -99,7 +99,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, reactive, onMounted, watch, defineProps, defineEmits } from 'vue';
+import { ref, computed, reactive, onMounted, watch } from 'vue';
 import { ChevronDown, Code, Server, Database, Figma, Cpu, FileCode } from 'lucide-vue-next';
 
 const props = defineProps<{

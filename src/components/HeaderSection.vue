@@ -69,7 +69,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, defineProps } from 'vue';
+import { ref, onMounted } from 'vue';
 import { Mail, Github, Linkedin, Download } from 'lucide-vue-next';
 
 defineProps<{
